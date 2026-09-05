@@ -1,0 +1,233 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "01b0f456dc190f5f2d74",
+  "position": {
+    "x": 32.857142857142861,
+    "y": 41.428571428571431,
+    "z": 1000,
+    "height": 635.71428571428578,
+    "width": 950.00000000000011,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Industry"
+                }
+              },
+              "queryRef": "ai_job_impact.Industry",
+              "nativeQueryRef": "Industry",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Job_Role"
+                }
+              },
+              "queryRef": "ai_job_impact.Job_Role",
+              "nativeQueryRef": "Job_Role"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ai_job_impact"
+                        }
+                      },
+                      "Property": "Salary_After_AI"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ai_job_impact.Salary_After_AI)",
+              "nativeQueryRef": "Sum of Salary_After_AI"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ai_job_impact"
+                      }
+                    },
+                    "Property": "Salary_After_AI"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "ai_job_impact"
+                          }
+                        },
+                        "Property": "Job_Role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Accountant'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "ai_job_impact"
+                          }
+                        },
+                        "Property": "Job_Role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Technician'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "ai_job_impact"
+                          }
+                        },
+                        "Property": "Job_Role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Nurse'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

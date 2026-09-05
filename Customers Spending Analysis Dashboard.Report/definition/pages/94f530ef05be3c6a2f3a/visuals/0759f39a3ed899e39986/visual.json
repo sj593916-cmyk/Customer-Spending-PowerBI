@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "0759f39a3ed899e39986",
+  "position": {
+    "x": 200.16,
+    "y": 44.64,
+    "z": 0,
+    "height": 630.72,
+    "width": 876.96,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Job_Status"
+                }
+              },
+              "queryRef": "ai_job_impact.Job_Status",
+              "nativeQueryRef": "Job_Status",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Industry"
+                }
+              },
+              "queryRef": "ai_job_impact.Industry",
+              "nativeQueryRef": "Industry"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ai_job_impact"
+                        }
+                      },
+                      "Property": "Work_Hours_Per_Week"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ai_job_impact.Work_Hours_Per_Week)",
+              "nativeQueryRef": "Sum of Work_Hours_Per_Week"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ai_job_impact"
+                      }
+                    },
+                    "Property": "Work_Hours_Per_Week"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "ai_job_impact"
+                          }
+                        },
+                        "Property": "Industry"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Education'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

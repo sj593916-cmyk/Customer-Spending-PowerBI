@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "95cabe0c160da4f47a82",
+  "position": {
+    "x": 330.23622047244095,
+    "y": 80.787401574803141,
+    "z": 7000,
+    "height": 104.88188976377953,
+    "width": 289.1338582677165,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cafe_sales"
+                        }
+                      },
+                      "Property": "Transaction ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Count(Cafe_sales.Transaction ID)",
+              "nativeQueryRef": "Transactions",
+              "displayName": "Transactions"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

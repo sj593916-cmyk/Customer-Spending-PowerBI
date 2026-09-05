@@ -1,0 +1,84 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 413,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 941.51702405083051,
+            "y": 38
+          },
+          "nodeIndex": "Excel Integration",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1225.5170240508305,
+            "y": 62
+          },
+          "nodeIndex": "global student",
+          "nodeLineageTag": "d7a3f55c-4ac2-4f9c-b03f-1573997a69ce",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1509.5170240508305,
+            "y": 0
+          },
+          "nodeIndex": "global table2",
+          "nodeLineageTag": "fa09fdbd-fb2c-46d2-a5db-73045cd09076",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1509.5170240508305,
+            "y": 0
+          },
+          "nodeIndex": "Cafe_sales",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1509.5170240508305,
+            "y": 62
+          },
+          "nodeIndex": "KPI",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

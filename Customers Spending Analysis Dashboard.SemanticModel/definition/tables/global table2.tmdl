@@ -1,0 +1,108 @@
+table 'global table2'
+	lineageTag: fa09fdbd-fb2c-46d2-a5db-73045cd09076
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: da316435-2673-48a3-bf4c-4261e420924d
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 7a11154f-a51b-46e0-a5cc-b2ba64994d04
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column maths
+		dataType: int64
+		formatString: 0
+		lineageTag: 342cc47e-81f0-4960-988f-e8144582307b
+		summarizeBy: sum
+		sourceColumn: maths
+
+		annotation SummarizationSetBy = Automatic
+
+	column english
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fd74361-6790-4223-954a-e85deb0a9c83
+		summarizeBy: sum
+		sourceColumn: english
+
+		annotation SummarizationSetBy = Automatic
+
+	column hindi
+		dataType: int64
+		formatString: 0
+		lineageTag: 56e35b52-e56c-4c49-ac6a-e23bf84139e6
+		summarizeBy: sum
+		sourceColumn: hindi
+
+		annotation SummarizationSetBy = Automatic
+
+	column sum
+		dataType: int64
+		formatString: 0
+		lineageTag: 73566677-e97a-4f0c-b24b-37a339146d62
+		summarizeBy: sum
+		sourceColumn: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column minimum
+		dataType: int64
+		formatString: 0
+		lineageTag: 652ea593-27c6-4b2f-9f16-d8ffd7ca7e7d
+		summarizeBy: sum
+		sourceColumn: minimum
+
+		annotation SummarizationSetBy = Automatic
+
+	column maximum
+		dataType: int64
+		formatString: 0
+		lineageTag: 28d61f19-63a7-4109-a85f-6f3c00d496be
+		summarizeBy: sum
+		sourceColumn: maximum
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: 2226b5c0-721e-4cff-8dbb-3b9dbc1379d9
+		summarizeBy: sum
+		sourceColumn: percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column result
+		dataType: string
+		lineageTag: 94d93356-8f5e-4d1b-9cfb-0725eee34762
+		summarizeBy: none
+		sourceColumn: result
+
+		annotation SummarizationSetBy = Automatic
+
+	column grade
+		dataType: string
+		lineageTag: fe00409e-69ea-45b7-bc3c-f6707062faf5
+		summarizeBy: none
+		sourceColumn: grade
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'global table2' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "global", [ReturnSingleDatabase=true]),
+				    global_table2 = Source{[Schema="global",Item="table2"]}[Data]
+				in
+				    global_table2
+

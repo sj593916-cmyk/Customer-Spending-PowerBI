@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "0761b53b2e17399d6ebd",
+  "position": {
+    "x": 198.57142857142858,
+    "y": 37.142857142857146,
+    "z": 0,
+    "height": 644.28571428571433,
+    "width": 882.85714285714289,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "filledMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Amazon Sales Report new file"
+                    }
+                  },
+                  "Property": "ship-country"
+                }
+              },
+              "queryRef": "Amazon Sales Report new file.ship-country",
+              "nativeQueryRef": "ship-country",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Amazon Sales Report new file"
+                    }
+                  },
+                  "Property": "ship-city"
+                }
+              },
+              "queryRef": "Amazon Sales Report new file.ship-city",
+              "nativeQueryRef": "ship-city"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fillRule": {
+              "linearGradient2": {
+                "min": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                },
+                "max": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'maxColor'"
+                      }
+                    }
+                  }
+                },
+                "nullColoringStrategy": {
+                  "strategy": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'asZero'"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

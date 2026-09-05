@@ -1,0 +1,103 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9b0b18a05edfcda6d229",
+  "position": {
+    "x": 148.32,
+    "y": 56.160000000000004,
+    "z": 0,
+    "height": 607.68000000000006,
+    "width": 980.64,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedAreaChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cafe_sales"
+                    }
+                  },
+                  "Property": "Item"
+                }
+              },
+              "queryRef": "Cafe_sales.Item",
+              "nativeQueryRef": "Item",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cafe_sales"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "Cafe_sales.Location",
+              "nativeQueryRef": "Location"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cafe_sales"
+                        }
+                      },
+                      "Property": "Price Per Unit"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Cafe_sales.Price Per Unit)",
+              "nativeQueryRef": "Sum of Price Per Unit"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Cafe_sales"
+                      }
+                    },
+                    "Property": "Price Per Unit"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

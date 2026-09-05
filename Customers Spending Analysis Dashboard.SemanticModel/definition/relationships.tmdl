@@ -1,0 +1,10 @@
+relationship 747b08ab-0822-4157-83e9-d24067c6c9fd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Cafe_sales.'Transaction Date'
+	toColumn: LocalDateTable_b7d70887-3d01-4ce7-bbb6-043096bfdd6e.Date
+
+relationship e5665d7b-d29e-4d2e-85ab-98e04ea47cda
+	joinOnDateBehavior: datePartOnly
+	fromColumn: KPI.Date
+	toColumn: LocalDateTable_cf9804ab-c369-4432-8c82-3fd0cc633d78.Date
+

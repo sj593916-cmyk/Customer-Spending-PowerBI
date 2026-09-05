@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "7c188646a7972c1e28d2",
+  "position": {
+    "x": 1047.1428571428571,
+    "y": 290,
+    "z": 0,
+    "height": 140,
+    "width": 194.28571428571431,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "listSlicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Gender"
+                }
+              },
+              "queryRef": "ai_job_impact.Gender",
+              "nativeQueryRef": "Gender",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

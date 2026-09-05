@@ -1,0 +1,114 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "6aafede4f52de142e6ee",
+  "position": {
+    "x": 422.85714285714289,
+    "y": 265.71428571428572,
+    "z": 1,
+    "height": 188.57142857142858,
+    "width": 432.85714285714289,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Gauge"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "Gauge.Name",
+              "nativeQueryRef": "Name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Gauge"
+                        }
+                      },
+                      "Property": "Min"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Gauge.Min)",
+              "nativeQueryRef": "Sum of Min"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Gauge"
+                        }
+                      },
+                      "Property": "Max"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Gauge.Max)",
+              "nativeQueryRef": "Sum of Max"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Gauge"
+                        }
+                      },
+                      "Property": "Current"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Gauge.Current)",
+              "nativeQueryRef": "Sum of Current"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Gauge"
+                        }
+                      },
+                      "Property": "Target"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Gauge.Target)",
+              "nativeQueryRef": "Sum of Target"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

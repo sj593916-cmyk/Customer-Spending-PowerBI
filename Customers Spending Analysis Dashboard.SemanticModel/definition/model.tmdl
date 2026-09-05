@@ -1,0 +1,25 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Excel Integration","global table2","global student","Cafe_sales","KPI"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_c7a5829f-73a1-41b9-b63e-32ecec3fc978
+ref table 'Excel Integration'
+ref table 'global table2'
+ref table 'global student'
+ref table Cafe_sales
+ref table LocalDateTable_b7d70887-3d01-4ce7-bbb6-043096bfdd6e
+ref table KPI
+ref table LocalDateTable_cf9804ab-c369-4432-8c82-3fd0cc633d78
+
+ref cultureInfo en-US
+

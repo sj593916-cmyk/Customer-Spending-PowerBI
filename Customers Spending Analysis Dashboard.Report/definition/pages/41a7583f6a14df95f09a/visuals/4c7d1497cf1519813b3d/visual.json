@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4c7d1497cf1519813b3d",
+  "position": {
+    "x": 201.6,
+    "y": 24.48,
+    "z": 0,
+    "height": 669.6,
+    "width": 875.52,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "waterfallChart",
+    "query": {
+      "queryState": {
+        "Breakdown": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cafe_sales"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "Cafe_sales.Location",
+              "nativeQueryRef": "Location"
+            }
+          ]
+        },
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cafe_sales"
+                    }
+                  },
+                  "Property": "Item"
+                }
+              },
+              "queryRef": "Cafe_sales.Item",
+              "nativeQueryRef": "Item",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cafe_sales"
+                        }
+                      },
+                      "Property": "Total Spent"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Cafe_sales.Total Spent)",
+              "nativeQueryRef": "Sum of Total Spent"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Cafe_sales"
+                      }
+                    },
+                    "Property": "Total Spent"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "sentimentColors": [
+        {
+          "properties": {
+            "totalFill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

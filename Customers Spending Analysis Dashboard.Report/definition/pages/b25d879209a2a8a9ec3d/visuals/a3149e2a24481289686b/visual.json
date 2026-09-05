@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a3149e2a24481289686b",
+  "position": {
+    "x": 251.42857142857144,
+    "y": 50,
+    "z": 0,
+    "height": 618.57142857142856,
+    "width": 775.71428571428578,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "kpi",
+    "query": {
+      "queryState": {
+        "Goal": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KPI"
+                        }
+                      },
+                      "Property": "Status Value %"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KPI.Status Value %)",
+              "nativeQueryRef": "Sum of Status Value %"
+            }
+          ]
+        },
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KPI"
+                        }
+                      },
+                      "Property": "Actual Sales"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KPI.Actual Sales)",
+              "nativeQueryRef": "Sum of Actual Sales"
+            }
+          ]
+        },
+        "TrendLine": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "KPI.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

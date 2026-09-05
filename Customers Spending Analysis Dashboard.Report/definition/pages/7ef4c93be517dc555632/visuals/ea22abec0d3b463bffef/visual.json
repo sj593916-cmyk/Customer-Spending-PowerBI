@@ -1,0 +1,213 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ea22abec0d3b463bffef",
+  "position": {
+    "x": 132.48000000000002,
+    "y": 40.32,
+    "z": 0,
+    "height": 637.92000000000007,
+    "width": 1012.32,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineClusteredColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Industry"
+                }
+              },
+              "queryRef": "ai_job_impact.Industry",
+              "nativeQueryRef": "Industry",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Education_Level"
+                }
+              },
+              "queryRef": "ai_job_impact.Education_Level",
+              "nativeQueryRef": "Education_Level"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ai_job_impact"
+                    }
+                  },
+                  "Property": "Gender"
+                }
+              },
+              "queryRef": "ai_job_impact.Gender",
+              "nativeQueryRef": "Gender"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ai_job_impact"
+                        }
+                      },
+                      "Property": "Job_Role"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(ai_job_impact.Job_Role)",
+              "nativeQueryRef": "First Job_Role"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ai_job_impact"
+                        }
+                      },
+                      "Property": "Salary_After_AI"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ai_job_impact.Salary_After_AI)",
+              "nativeQueryRef": "Sum of Salary_After_AI"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ai_job_impact"
+                        }
+                      },
+                      "Property": "Job_Satisfaction"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ai_job_impact.Job_Satisfaction)",
+              "nativeQueryRef": "Sum of Job_Satisfaction"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ai_job_impact"
+                      }
+                    },
+                    "Property": "Salary_After_AI"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "ai_job_impact"
+                          }
+                        },
+                        "Property": "Gender"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Female'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

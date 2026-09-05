@@ -1,0 +1,165 @@
+table Cafe_sales
+	lineageTag: 224ec792-774e-4dca-b5ed-5a77cd61f390
+
+	column 'Transaction ID'
+		dataType: string
+		lineageTag: f8c91bfe-5ac7-418e-99c7-5a4caa6bc52e
+		summarizeBy: none
+		sourceColumn: Transaction ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 29543380-8163-41cb-ad4e-6b9b9c8edc69
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: c804bd99-8c0a-4165-95fa-7a92bfc7ce85
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Per Unit'
+		dataType: int64
+		formatString: 0
+		lineageTag: e203ace6-63f5-4650-98d3-8db3acd9228b
+		summarizeBy: sum
+		sourceColumn: Price Per Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Spent'
+		dataType: int64
+		formatString: 0
+		lineageTag: 47838028-8c45-4ce3-ae9f-4eacb62d9d49
+		summarizeBy: sum
+		sourceColumn: Total Spent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Method'
+		dataType: string
+		lineageTag: 8a3c1a5f-6a89-4491-8b78-b9d204a6337b
+		summarizeBy: none
+		sourceColumn: Payment Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 8c2a8a8f-c470-4832-a2f9-3741499a4f1f
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5fb0b673-020e-4642-a571-198938b1fce9
+		summarizeBy: none
+		sourceColumn: Transaction Date
+
+		variation Variation
+			isDefault
+			relationship: 747b08ab-0822-4157-83e9-d24067c6c9fd
+			defaultHierarchy: LocalDateTable_b7d70887-3d01-4ce7-bbb6-043096bfdd6e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 7079b095-9193-4e1c-ae11-626647a88f7c
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: e783a7e0-b46e-4d49-99c9-e3173e4022a8
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week of Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5253f6e3-92c9-4f26-8860-c51595699205
+		summarizeBy: sum
+		sourceColumn: Week of Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: d68944bb-ea99-4ef4-9e07-7d3c8cc93cc0
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cafe_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Shubham\Downloads\Telegram Desktop\dirty_cafe_sales.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Transaction ID", type text}, {"Item", type text}, {"Quantity", type text}, {"Price Per Unit", type text}, {"Total Spent", type text}, {"Payment Method", type text}, {"Location", type text}, {"Transaction Date", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1","","NA",Replacer.ReplaceValue,{"Item"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","UNKNOWN","NA",Replacer.ReplaceText,{"Item"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","ERROR","NA",Replacer.ReplaceText,{"Item"}),
+				    #"Removed Errors" = Table.RemoveRowsWithErrors(#"Replaced Value2", {"Item"}),
+				    #"Removed Errors1" = Table.RemoveRowsWithErrors(#"Removed Errors", {"Quantity"}),
+				    #"Removed Errors2" = Table.RemoveRowsWithErrors(#"Removed Errors1", {"Total Spent"}),
+				    #"Removed Errors3" = Table.RemoveRowsWithErrors(#"Removed Errors2", {"Payment Method"}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Removed Errors3", {{"Location", ""}}),
+				    #"Removed Errors4" = Table.RemoveRowsWithErrors(#"Replaced Errors", {"Location"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Removed Errors4","","0",Replacer.ReplaceValue,{"Total Spent"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","ERROR","0",Replacer.ReplaceText,{"Total Spent"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","UNKNOWN","0",Replacer.ReplaceText,{"Total Spent"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","","NA",Replacer.ReplaceValue,{"Payment Method"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","UNKNOWN","NA",Replacer.ReplaceText,{"Payment Method"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","ERROR","NA",Replacer.ReplaceText,{"Payment Method"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","","0",Replacer.ReplaceValue,{"Quantity"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","ERROR","0",Replacer.ReplaceText,{"Quantity"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","UNKNOWN","0",Replacer.ReplaceText,{"Quantity"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","","0",Replacer.ReplaceValue,{"Price Per Unit"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","ERROR","0",Replacer.ReplaceText,{"Price Per Unit"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","UNKNOWN","0",Replacer.ReplaceText,{"Price Per Unit"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Replaced Value14",{{"Price Per Unit", Int64.Type}, {"Total Spent", Int64.Type}, {"Quantity", Int64.Type}}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Changed Type2","","NA",Replacer.ReplaceValue,{"Location"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","ERROR","NA",Replacer.ReplaceText,{"Location"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","UNKNOWN","NA",Replacer.ReplaceText,{"Location"}),
+				    #"Removed Errors5" = Table.RemoveRowsWithErrors(#"Replaced Value17", {"Transaction Date"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Removed Errors5","ERROR","2023-01-20",Replacer.ReplaceText,{"Transaction Date"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","","2023-01-21",Replacer.ReplaceValue,{"Transaction Date"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","UNKNOWN","2023-02-13",Replacer.ReplaceText,{"Transaction Date"}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Replaced Value20",{{"Transaction Date", type date}}),
+				    #"Inserted Month Name" = Table.AddColumn(#"Changed Type3", "Month Name", each Date.MonthName([Transaction Date]), type text),
+				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Month Name", "Day Name", each Date.DayOfWeekName([Transaction Date]), type text),
+				    #"Inserted Week of Month" = Table.AddColumn(#"Inserted Day Name", "Week of Month", each Date.WeekOfMonth([Transaction Date]), Int64.Type),
+				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Week of Month", "Quarter", each Date.QuarterOfYear([Transaction Date]), Int64.Type),
+				    #"Filtered Rows" = Table.SelectRows(#"Inserted Quarter", each true),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Filtered Rows","NA","Burger",Replacer.ReplaceText,{"Item"}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Replaced Value21","NA","UPI",Replacer.ReplaceText,{"Payment Method"}),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Replaced Value22","NA","Dineout",Replacer.ReplaceText,{"Location"})
+				in
+				    #"Replaced Value23"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

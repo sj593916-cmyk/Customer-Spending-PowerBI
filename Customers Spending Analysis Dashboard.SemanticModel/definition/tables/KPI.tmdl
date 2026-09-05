@@ -1,0 +1,62 @@
+table KPI
+	lineageTag: 176792eb-1bb5-4861-84d9-093d931e27e8
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3cd6795a-5204-41ee-aefc-fb207f286aa2
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: e5665d7b-d29e-4d2e-85ab-98e04ea47cda
+			defaultHierarchy: LocalDateTable_cf9804ab-c369-4432-8c82-3fd0cc633d78.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Actual Sales'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2677b5ee-dc92-42fc-9460-1869f2c8cde9
+		summarizeBy: sum
+		sourceColumn: Actual Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Sales'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6c6e6f1-7722-41e6-a0ac-2dd30e85096f
+		summarizeBy: sum
+		sourceColumn: Target Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Value %'
+		dataType: double
+		lineageTag: 7f8c9ffb-d610-48a9-90fe-ae0d58c93ba4
+		summarizeBy: sum
+		sourceColumn: Status Value %
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition KPI = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Shubham\Downloads\Telegram Desktop\KPI.xlsx"), null, true),
+				    Sheet2_Sheet = Source{[Item="Sheet2",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet2_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Actual Sales", Int64.Type}, {"Target Sales", Int64.Type}, {"Status Value %", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

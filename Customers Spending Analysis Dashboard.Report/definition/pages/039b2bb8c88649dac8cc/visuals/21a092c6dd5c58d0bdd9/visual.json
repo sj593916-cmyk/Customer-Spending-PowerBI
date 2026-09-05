@@ -1,0 +1,177 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "21a092c6dd5c58d0bdd9",
+  "position": {
+    "x": 19.84251968503937,
+    "y": 585.35433070866134,
+    "z": 0,
+    "height": 117.63779527559055,
+    "width": 1237.3228346456692,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "KEY BUSINESS INSIGHTS",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "18pt",
+                      "textDecoration": "underline"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " "
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " Top Item:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": " Salad leads total spending.                                                                             3.   ",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Transaction Volume:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": " ~10K transactions generated ~85K spending.",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  }
+                ],
+                "listType": "ordered"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. ",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Strong Contributors:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": " Sandwich and Smoothie follow closely.                                      4.   ",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Average Spend:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": " Average transaction value is ~8.49.",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "14pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

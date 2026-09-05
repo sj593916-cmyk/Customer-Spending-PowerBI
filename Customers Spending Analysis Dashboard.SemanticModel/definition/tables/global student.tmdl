@@ -1,0 +1,46 @@
+table 'global student'
+	lineageTag: d7a3f55c-4ac2-4f9c-b03f-1573997a69ce
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: cdf70d11-8913-4619-b24e-b0e7a236c305
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 68b61db6-a6ac-4130-8a5a-3fb1b7dffdb3
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 4681a69a-b771-4182-9e61-fc93cfeae8e6
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: af73dfb8-96fd-46d7-8c57-6ece3c133eff
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'global student' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "global", [ReturnSingleDatabase=true]),
+				    global_student = Source{[Schema="global",Item="student"]}[Data]
+				in
+				    global_student
+

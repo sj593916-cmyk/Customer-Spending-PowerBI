@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Customers Spending Analysis Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "96960b3a-6e11-4def-80ab-adaa43479a7a"
+  }
+}

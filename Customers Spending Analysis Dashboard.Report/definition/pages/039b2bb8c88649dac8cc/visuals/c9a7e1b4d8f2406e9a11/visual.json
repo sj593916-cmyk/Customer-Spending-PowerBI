@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c9a7e1b4d8f2406e9a11",
+  "position": {
+    "x": 640.62992125984249,
+    "y": 80.787401574803141,
+    "z": 8000,
+    "height": 104.88188976377953,
+    "width": 290.55118110236219,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cafe_sales"
+                        }
+                      },
+                      "Property": "Total Spent"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Average(Cafe_sales.Total Spent)",
+              "nativeQueryRef": "Average Spend",
+              "displayName": "Average Spend"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

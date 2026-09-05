@@ -1,0 +1,66 @@
+table 'Excel Integration'
+	lineageTag: 4ccc6d8a-9bf6-4c36-9802-ec791af3f36f
+
+	column Name
+		dataType: string
+		lineageTag: b7eda79a-5458-4990-a1e5-c0e435beacfa
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: faf1505a-5b5b-4cac-9846-4b7d8531140a
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: f97fcda8-6bfa-42a0-9642-59ad4dd09d66
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		lineageTag: 2509d062-c54b-45ea-8588-414ae03661f7
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marks
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bd5330c-f7fc-477a-86b4-6126e82b9b2d
+		summarizeBy: sum
+		sourceColumn: Marks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Result
+		dataType: string
+		lineageTag: e07085fd-c34c-43ed-9bbc-400f6f00893b
+		summarizeBy: none
+		sourceColumn: Result
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Excel Integration' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Shubham\Desktop\Excel Integration.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Name", type text}, {"Age", Int64.Type}, {"Category", type text}, {"Group", type text}, {"Marks", Int64.Type}, {"Result", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

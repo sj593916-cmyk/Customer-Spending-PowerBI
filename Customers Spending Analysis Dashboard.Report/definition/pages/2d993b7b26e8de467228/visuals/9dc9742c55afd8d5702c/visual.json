@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9dc9742c55afd8d5702c",
+  "position": {
+    "x": 224.28571428571431,
+    "y": 42.857142857142861,
+    "z": 0,
+    "height": 634.28571428571433,
+    "width": 830,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "map",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Amazon Sales Report new file"
+                    }
+                  },
+                  "Property": "ship-city"
+                }
+              },
+              "queryRef": "Amazon Sales Report new file.ship-city",
+              "nativeQueryRef": "ship-city",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Amazon Sales Report new file"
+                    }
+                  },
+                  "Property": "ship-state"
+                }
+              },
+              "queryRef": "Amazon Sales Report new file.ship-state",
+              "nativeQueryRef": "ship-state"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Amazon Sales Report new file"
+                        }
+                      },
+                      "Property": "Size"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(Amazon Sales Report new file.Size)",
+              "nativeQueryRef": "Count of Size"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

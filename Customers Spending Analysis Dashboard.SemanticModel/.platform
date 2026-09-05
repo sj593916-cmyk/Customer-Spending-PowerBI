@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Customers Spending Analysis Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2a138c77-5b98-4930-bd82-989d69c3d6c1"
+  }
+}

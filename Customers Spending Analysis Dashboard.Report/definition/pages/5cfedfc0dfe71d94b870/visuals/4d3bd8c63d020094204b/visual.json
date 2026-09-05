@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4d3bd8c63d020094204b",
+  "position": {
+    "x": 997.14285714285722,
+    "y": 238.57142857142858,
+    "z": 1000,
+    "height": 242.85714285714286,
+    "width": 162.85714285714286,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Gauge"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "Gauge.Name",
+              "nativeQueryRef": "Name",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
